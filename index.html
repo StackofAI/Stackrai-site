@@ -1,146 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>StackrAI Web</title>
+  
 
+</head>
+<body>
+<!-- partial:index.partial.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StackrAI | Smart Business Automation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --green-primary: #1DB954;
       --green-dark: #103E2E;
       --green-light: #D7FBE8;
+      --green-hover: #17a046;
       --text-gray: #4D4D4D;
+      --text-light: #6D6D6D;
       --white: #ffffff;
+      --off-white: #f9f9f9;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--green-light);
+      font-family: 'Poppins', sans-serif;
+      background: var(--off-white);
       color: var(--text-gray);
+      line-height: 1.6;
     }
+    
     header {
       background: var(--green-dark);
       color: var(--white);
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-primary), #2dd46a);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    header .container {
+      padding: 2rem 1rem;
+    }
+    
     header h1 {
       margin: 0;
       font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
+    
     header p {
       font-size: 1.2rem;
       margin-top: 0.5rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    
     .hero {
-      max-width: 960px;
-      margin: 2rem auto;
+      background: linear-gradient(135deg, var(--green-light), var(--white));
+      padding: 4rem 1rem;
       text-align: center;
-      padding: 0 1rem;
+      position: relative;
     }
+    
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M1200 0L0 0 0 7.17C200 60 400 100 600 100 800 100 1000 60 1200 7.17z' fill='%23f9f9f9'%3E%3C/path%3E%3C/svg%3E");
+      background-size: cover;
+    }
+    
     .hero h2 {
-      font-size: 2rem;
-      color: var(--green-primary);
+      font-size: 2.5rem;
+      color: var(--green-dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
     }
+    
     .hero p {
-      font-size: 1.1rem;
-      margin-top: 1rem;
+      font-size: 1.2rem;
+      margin: 1rem auto 0;
+      max-width: 700px;
+      color: var(--text-light);
     }
+    
     .cta-button {
       display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
+      margin-top: 2rem;
+      padding: 0.9rem 2rem;
       background: var(--green-primary);
       color: var(--white);
       border: none;
-      border-radius: 6px;
-      font-size: 1rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 500;
       text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(29, 185, 84, 0.25);
     }
+    
+    .cta-button:hover {
+      background: var(--green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(29, 185, 84, 0.3);
+    }
+    
     .section {
-      max-width: 960px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      padding: 4rem 0;
     }
-    .section h3 {
-      color: var(--green-primary);
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
     }
+    
+    .section-title h3 {
+      color: var(--green-dark);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h3::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--green-primary);
+    }
+    
+    .section-title p {
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
+    
     .card {
       background: var(--white);
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
     }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--green-dark);
+    }
+    
+    .card p {
+      color: var(--text-light);
+      margin: 0;
+    }
+    
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--green-primary);
+    }
+    
+    .benefits-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .benefits-list li {
+      background: var(--white);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+    
+    .benefits-list li:hover {
+      transform: translateX(5px);
+    }
+    
+    .benefits-list li::before {
+      content: "✓";
+      display: inline-block;
+      color: var(--green-primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+    
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.2);
+    }
+    
+    .testimonials {
+      background: var(--green-light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonials::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23103E2E" opacity="0.03" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+      background-size: cover;
+      z-index: 0;
+    }
+    
+    .testimonial-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-card::before {
+      content: """;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 4rem;
+      color: var(--green-primary);
+      opacity: 0.1;
+      font-family: serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+    
+    .testimonial-role {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
     footer {
       background: var(--green-dark);
       color: var(--white);
+      padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-column h4 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .footer-column h4::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--green-primary);
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-column li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .copyright {
       text-align: center;
-      padding: 1.5rem 1rem;
-      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 3rem 0;
+      }
+      
+      .section-title h3 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>StackrAI</h1>
-    <p>Smart AI Automation for Local Businesses</p>
+    <div class="container">
+      <h1>StackrAI</h1>
+      <p>Smart AI Automation for Local Businesses</p>
+    </div>
   </header>
 
   <section class="hero">
-    <h2>Turn Repetitive Tasks Into Automated Workflows</h2>
-    <p>We help small businesses and local offices save hours each week using smart automation tools — without adding complexity or costly software.</p>
-    <a href="#contact" class="cta-button">Get a Free Automation Audit</a>
-  </section>
-
-  <section class="section">
-    <h3>Who We Help</h3>
-    <div class="grid">
-      <div class="card">
-        <strong>Realtors</strong>
-        <p>Capture and follow up with leads automatically to grow your client base.</p>
-      </div>
-      <div class="card">
-        <strong>Town Offices</strong>
-        <p>Modernize permit and license workflows with AI-generated summaries.</p>
-      </div>
-      <div class="card">
-        <strong>Lawyers</strong>
-        <p>Auto-generate legal drafts and responses from client forms.</p>
-      </div>
-      <div class="card">
-        <strong>Insurance Brokers</strong>
-        <p>Streamline client onboarding and claims processing with automation.</p>
-      </div>
+    <div class="container">
+      <h2>Turn Repetitive Tasks Into Automated Workflows</h2>
+      <p>We help small businesses and local offices save hours each week using smart automation tools — without adding complexity or costly software.</p>
+      <a href="#contact" class="cta-button">Get a Free Automation Audit</a>
     </div>
   </section>
-
+<!-- Who we help section -->
   <section class="section">
-    <h3>Why StackrAI?</h3>
-    <ul>
-      <li>💡 Simple, effective no-code solutions tailored to your business</li>
-      <li>⚡ Fast turnarounds and hands-on support</li>
-      <li>💰 Transparent pricing, no software bloat</li>
-      <li>📈 Focused on saving time and increasing productivity</li>
-    </ul>
-  </section>
+  <div class="container">
+    <div class="section-title">
+      <h3>Who We Help</h3>
+      <p>Professionals across industries trust StackrAI to streamline their operations</p>
+    </div>
+    
+    <!-- 3x3 Grid -->
+    <div class="grid-3x3">
+      <!-- Row 1 -->
+      <div class="card">
+        <div class="card-icon">🏡</div>
+        <strong>Realtors</strong>
+        <p>Automate lead capture and follow-ups to grow your client base.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <strong>Small Business</strong>
+        <p>Simplify inventory, bookings, and customer communications.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <strong>Town Offices</strong>
+        <p>Modernize permits, licenses, and citizen requests.</p>
+      </div>
+      
+      <!-- Row 2 -->
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <strong>Insurance Brokers</strong>
+        <p>Streamline client onboarding and claims processing.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🏥</div>
+        <strong>Healthcare</strong>
+        <p>Automate patient scheduling and administrative tasks.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <strong>Nonprofits</strong>
+        <p>Manage donors, volunteers, and outreach programs.</p>
+      </div>
+      
+      <!-- Row 3 (Optional filler cards if needed) -->
+      <div class="card">
+        <div class="card-icon">👔</div>
+        <strong>Consultants</strong>
+        <p>Automate client reports and follow-up systems.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🏢</div>
+        <strong>Property Managers</strong>
+        <p>Streamline tenant communications and maintenance.</p>
+      </div>
+      
+      <div class="card cta-card" onclick="document.getElementById('contact').scrollIntoView()">
+        <div class="card-icon">✨</div>
+        <strong>Your Industry?</strong>
+        <p>We customize solutions for any business. Get your free demo.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section class="section" id="contact">
-    <h3>Let’s Automate Your First Task (Free)</h3>
-    <p>Book a free audit or tell us about one task you want automated. We'll build a demo — no strings attached.</p>
-    <a href="mailto:hello@stackrai.com" class="cta-button">Email Us Now</a>
-  </section>
+<style>
+  /* 3x3 Grid Styles */
+  .grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta-card {
+    background: linear-gradient(135deg, var(--green-light), var(--white));
+    border: 1px dashed var(--green-primary);
+    cursor: pointer;
+  }
+  
+  .cta-card:hover {
+    background: linear-gradient(135deg, var(--white), var(--green-light));
+  }
+  
+  @media (max-width: 900px) {
+    .grid-3x3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .grid-3x3 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<!-- Contact Form Section -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h3>See Automation in Action (Free Demo)</h3>
+      <p>We'll build a custom demo showing how we'd automate your most repetitive task - no commitment required.</p>
+    </div>
+    <div class="contact-form">
+      <form id="demo-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <!-- Honeypot Field (Hidden from humans) -->
+        <input type="text" name="_gotcha" class="honeypot-field" autocomplete="off" tabindex="-1">
+        
+        <!-- Real Fields -->
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Work Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@yourbusiness.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="business">What describes you best?</label>
+          <select id="business" name="business_type" required>
+            <option value="">Select your role...</option>
+            <option value="realtor">🏡 Realtor</option>
+            <option value="small-business">🛒 Small Business Owner</option>
+            <option value="government">🏛️ Government Staff</option>
+            <option value="insurance">🛡️ Insurance Broker</option>
+            <option value="healthcare">🏥 Healthcare Provider</option>
+            <option value="nonprofit">🤝 Nonprofit Manager</option>
+            <option value="other">Other (Please specify)</option>
+          </select>
+        </div>
+        
+        <!-- Conditional "Other" field -->
+        <div class="form-group" id="other-field" style="display:none;">
+          <label for="other-description">Please specify your role</label>
+          <input type="text" id="other-description" name="other_description">
+        </div>
+        
+        <div class="form-group">
+          <label for="task">What repetitive task wastes your time?</label>
+          <textarea id="task" name="pain_point" rows="3" required 
+                  placeholder="Example: 'I manually transfer data between 3 systems every morning...'"></textarea>
+        </div>
+        
+        <input type="hidden" name="_subject" value="Free Demo Request - [Your Website]">
+        <button type="submit" class="cta-button" id="submit-btn">
+          <span style="display:flex;align-items:center;gap:8px;">
+            🎯 Get My Free Demo 
+            <span class="submit-arrow">→</span>
+          </span>
+        </button>
+        
+        <p style="text-align:center;font-size:0.9em;margin-top:1rem;">
+          <small>No credit card required • Demo delivered in 3 business days</small>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Honeypot Field Styling */
+  .honeypot-field {
+    opacity: 0;
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  /* Submission Loading State */
+  .submit-loading .submit-arrow {
+    animation: bounceRight 0.5s infinite alternate;
+  }
+  @keyframes bounceRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(4px); }
+  }
+</style>
+
+<script>
+  // Conditional "Other" Field Toggle
+  document.getElementById('business').addEventListener('change', function() {
+    const otherField = document.getElementById('other-field');
+    otherField.style.display = this.value === 'other' ? 'block' : 'none';
+    document.getElementById('other-description').required = (this.value === 'other');
+  });
+
+  // Enhanced Honeypot Protection
+  document.getElementById('demo-form').addEventListener('submit', function(e) {
+    const form = this;
+    const submitBtn = document.getElementById('submit-btn');
+    const honeypot = form.querySelector('.honeypot-field');
+    
+    // 1. Honeypot Check
+    if (honeypot.value) {
+      console.log('Bot detected via honeypot');
+      e.preventDefault();
+      return false;
+    }
+    
+    // 2. Human Behavior Verification
+    submitBtn.disabled = true;
+    form.classList.add('submit-loading');
+    
+    // 3. Time-Based Check (Prevents rapid submissions)
+    const lastSubmit = parseInt(localStorage.getItem('lastFormSubmit') || '0');
+    const now = Date.now();
+    
+    if (now - lastSubmit < 5000) { // 5-second cooldown
+      e.preventDefault();
+      alert('Please wait a moment before submitting again.');
+      submitBtn.disabled = false;
+      form.classList.remove('submit-loading');
+      return false;
+    }
+    
+    localStorage.setItem('lastFormSubmit', now.toString());
+    
+    // 4. Fallback for JavaScript-disabled browsers
+    if (typeof fetch !== 'undefined') {
+      e.preventDefault();
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.innerHTML = `
+            <div style="text-align:center; padding:2rem;">
+              <h3 style="color:var(--green-primary)">Thank you! 🎉</h3>
+              <p>We'll email your demo within 3 business days.</p>
+            </div>
+          `;
+        } else {
+          throw new Error('Submission failed');
+        }
+      }).catch(() => {
+        alert('Submission failed. Please email us directly at hello@stackrai.com');
+        submitBtn.disabled = false;
+        form.classList.remove('submit-loading');
+      });
+    }
+  });
+</script>
+<script>
+  // Show/hide "Other" field dynamically
+  document.getElementById('business').addEventListener('change', function() {
+    const otherField = document.getElementById('other-field');
+    otherField.style.display = this.value === 'other' ? 'block' : 'none';
+    
+    // Make field required only when visible
+    document.getElementById('other-description').required = (this.value === 'other');
+  });
+</script>
 
   <footer>
-    <p>&copy; 2025 StackrAI. All rights reserved. | hello@stackrai.com</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>StackrAI</h4>
+          <p>Smart automation solutions for local businesses and professionals.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Automation Audits</a></li>
+            <li><a href="#">Workflow Design</a></li>
+            <li><a href="#">AI Integration</a></li>
+            <li><a href="#">Ongoing Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:stackofai@gmail.com">stackofai@gmail.com</a></li>
+            <!--<li><a href="#">LinkedIn</a></li> -->
+            <!--<li><a href="#">Twitter</a></li> -->
+            <!-- <li><a href="#">Book a Call</a></li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 StackrAI. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+</body>
+</html>
+<!-- partial -->
+  
 </body>
 </html>
