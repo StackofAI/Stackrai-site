@@ -1,23 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>StackrAI Web</title>
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L3G1W75ZCM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-L3G1W75ZCM');
-</script>
-  
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -622,7 +603,7 @@
         </button>
         
         <p style="text-align:center;font-size:0.9em;margin-top:1rem;">
-          <small>No credit card required • Demo delivered in 3 business days</small>
+          <small>No credit card required</small>
         </p>
       </form>
     </div>
@@ -708,7 +689,7 @@
           throw new Error('Submission failed');
         }
       }).catch(() => {
-        alert('Submission failed. Please email us directly at hello@stackrai.com');
+        alert('Submission failed. Please email us directly at stackofai@gmail.com');
         submitBtn.disabled = false;
         form.classList.remove('submit-loading');
       });
@@ -726,6 +707,68 @@
   });
 </script>
 
+     
+  <!-- Pricing Section -->
+  <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackrAI Pricing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Pricing Plans</h1>
+    </header>
+    <main class="pricing-container">
+        <div class="toggle-container">
+            <span>Monthly</span>
+            <label class="switch">
+                <input type="checkbox" id="toggle">
+                <span class="slider round"></span>
+            </label>
+            <span>Annual <span class="badge">Save 10%</span></span>
+        </div>
+        <div class="pricing-tiers">
+            <div class="tier">
+                <h2>Starter</h2>
+                <p class="price" data-monthly="$97/mo" data-annual="$87/mo">$97/mo</p>
+                <ul>
+                    <li>Basic automations</li>
+                    <li>Email response workflows</li>
+                    <li>Up to 3 workflows</li>
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="tier featured">
+                <h2>Growth <span class="best-value">Best Value</span></h2>
+                <p class="price" data-monthly="$297/mo" data-annual="$267/mo">$297/mo</p>
+                <ul>
+                    <li>Critical business workflows</li>
+                    <li>Client onboarding automations</li>
+                    <li>Up to 10 workflows</li>
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="tier">
+                <h2>Premium</h2>
+                <p class="price" data-monthly="$997/mo" data-annual="$897/mo">$997/mo</p>
+                <ul>
+                    <li>Full-service automation</li>
+                    <li>White-label technology</li>
+                    <li>Unlimited workflows</li>
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+    </main>
+  
+    <footer class="footer">
+        <p>&copy; 2025 StackrAI. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -757,9 +800,5 @@
       </div>
     </div>
   </footer>
-</body>
-</html>
-<!-- partial -->
-  
 </body>
 </html>
